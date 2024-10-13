@@ -1,6 +1,6 @@
 // Annie Zhao
 // October 8, 2024
-// Lab 5, Part 3
+// Lab 5, Part 3.1
 
 #include <iostream>
 #include <cstdlib>
@@ -9,45 +9,56 @@ using namespace std;
 
 int main() {
 
-    // Variables for loop
-    int i;
-    int directNum; // The direction as a number
-    for (i=1; i<=25; i++)
-    {
-        srand(time(0));
-        directNum = rand() % 4 + 1; //random number between 1 and 4 so each is 25% //probable
-        //1 means North, 2 means South, 3 means East and 4 means West
-        // Loop for 25 times
-        // Determine which direction the robot will move at each step
+    // Variables
+    int north = 0; // Directions
+    int south = 0;
+    int east = 0;
+    int west = 0; 
+    int i; // variable for loop
+    i = 0;
+    
+    srand(time(0));    
 
-        // Set a direction for the corresponding number
+    // Loop
+    for (i=0; i<=25;i++) {
+        int directNum; // Variable of direction as a number
+        directNum = rand() % 4 + 1;
+        switch (directNum) {
+            case 1:
+            north += 1;
+            break;
 
-        if (directNum == 1)
-        {
-            cout << "North" << endl;
-            srand(time(0));
-            directNum = rand() % 4 + 1;
-        }
-        else if (directNum == 2)
-        {
-            cout << "South" << endl;
-            srand(time(0));
-            directNum = rand() % 4 + 1;
-        }
-        else if (directNum == 3)
-        {
-            cout << "East" << endl;
-            srand(time(0));
-            directNum = rand() % 4 + 1;
-        }
-        else if (directNum == 4)
-        {
-            cout <<  "West" << endl;
-            srand(time(0));
-            directNum = rand() % 4 + 1;
-        }
+            case 2:
+            south += 1;
+            break;
 
+            case 3:
+            east += 1;
+            break;
+
+            case 4:
+            west += 1;
+            break;
+        }
+        i = i+1;
+        cout << "The robot is now " << north << " blocks north, " <<          south << " blocks south, " << east << " blocks east, and " <<         west << " blocks west of the starting point. " << endl;
     }
 
     return 0;
 }
+// Output 
+/*
+The robot is now 0 blocks north, 0 blocks south, 1 blocks east, and 0 blocks west of the starting point. 
+The robot is now 0 blocks north, 1 blocks south, 1 blocks east, and 0 blocks west of the starting point. 
+The robot is now 0 blocks north, 2 blocks south, 1 blocks east, and 0 blocks west of the starting point. 
+The robot is now 0 blocks north, 2 blocks south, 2 blocks east, and 0 blocks west of the starting point. 
+The robot is now 0 blocks north, 2 blocks south, 2 blocks east, and 1 blocks west of the starting point. 
+The robot is now 1 blocks north, 2 blocks south, 2 blocks east, and 1 blocks west of the starting point. 
+The robot is now 1 blocks north, 2 blocks south, 2 blocks east, and 2 blocks west of the starting point. 
+The robot is now 1 blocks north, 3 blocks south, 2 blocks east, and 2 blocks west of the starting point. 
+The robot is now 2 blocks north, 3 blocks south, 2 blocks east, and 2 blocks west of the starting point. 
+The robot is now 2 blocks north, 4 blocks south, 2 blocks east, and 2 blocks west of the starting point. 
+The robot is now 2 blocks north, 5 blocks south, 2 blocks east, and 2 blocks west of the starting point. 
+The robot is now 3 blocks north, 5 blocks south, 2 blocks east, and 2 blocks west of the starting point. 
+The robot is now 3 blocks north, 5 blocks south, 3 blocks east, and 2 blocks west of the starting point. 
+*/
